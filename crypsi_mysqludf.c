@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-bool mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+my_bool mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_aes_128_gcm_encrypt_deinit(UDF_INIT* initid);
 char* mcrypsi_aes_128_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result, unsigned long* length, char* is_null, char* error);
 
@@ -14,7 +14,7 @@ char* mcrypsi_aes_128_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
 }
 #endif
 
-bool mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+my_bool mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     if (args->arg_count != 2) {
         strcpy(message, "mcrypsi_aes_128_gcm_encrypt requires key and text parameters");
         return 1;
