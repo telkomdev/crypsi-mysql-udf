@@ -3,7 +3,7 @@
 C Crypsi (https://github.com/telkomdev/c-crypsi) MySQL UDF (User Defined Function)
 
 ## Motivation/ Why ?
-Why not `standard mysql crypto function` https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html ?. At the time this plugin was created, `standard mysql crypto function` did not support `AES GCM` yet. So this plugin is made to fulfill `AES GCM` encryption needs.
+Why not `standard mysql crypto function` https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html ?. At the time this plugin was created, `standard mysql crypto function` did not support `AES GCM` and `HMAC (hash-based message authentication code)` yet. So this plugin is made to fulfill `AES GCM` and `HMAC (hash-based message authentication code)` encryption needs.
 
 ## Dependencies
 - https://github.com/telkomdev/c-crypsi
@@ -102,6 +102,12 @@ DROP FUNCTION mcrypsi_aes_256_gcm_encrypt;
 DROP FUNCTION mcrypsi_aes_128_gcm_decrypt;
 DROP FUNCTION mcrypsi_aes_192_gcm_decrypt;
 DROP FUNCTION mcrypsi_aes_256_gcm_decrypt;
+
+DROP FUNCTION mcrypsi_hmac_md5;
+DROP FUNCTION mcrypsi_hmac_sha1;
+DROP FUNCTION mcrypsi_hmac_sha256;
+DROP FUNCTION mcrypsi_hmac_sha384;
+DROP FUNCTION mcrypsi_hmac_sha512;
 ```
 
 Create functions
@@ -113,6 +119,12 @@ CREATE FUNCTION mcrypsi_aes_256_gcm_encrypt RETURNS STRING SONAME 'crypsi_mysqlu
 CREATE FUNCTION mcrypsi_aes_128_gcm_decrypt RETURNS STRING SONAME 'crypsi_mysqludf.so';
 CREATE FUNCTION mcrypsi_aes_192_gcm_decrypt RETURNS STRING SONAME 'crypsi_mysqludf.so';
 CREATE FUNCTION mcrypsi_aes_256_gcm_decrypt RETURNS STRING SONAME 'crypsi_mysqludf.so';
+
+CREATE FUNCTION mcrypsi_hmac_md5 RETURNS STRING SONAME 'crypsi_mysqludf.so';
+CREATE FUNCTION mcrypsi_hmac_sha1 RETURNS STRING SONAME 'crypsi_mysqludf.so';
+CREATE FUNCTION mcrypsi_hmac_sha256 RETURNS STRING SONAME 'crypsi_mysqludf.so';
+CREATE FUNCTION mcrypsi_hmac_sha384 RETURNS STRING SONAME 'crypsi_mysqludf.so';
+CREATE FUNCTION mcrypsi_hmac_sha512 RETURNS STRING SONAME 'crypsi_mysqludf.so';
 ```
 
 ### AES GCM encrypt function
@@ -129,6 +141,15 @@ CREATE FUNCTION mcrypsi_aes_256_gcm_decrypt RETURNS STRING SONAME 'crypsi_mysqlu
 - AES 128: key length should be 16 bytes/char
 - AES 192: key length should be 24 bytes/char
 - AES 256: key length should be 32 bytes/char
+
+### HMAC (hash-based message authentication code)
+
+The length of the HMAC key must be at least 32 characters
+- mcrypsi_hmac_md5
+- mcrypsi_hmac_sha1
+- mcrypsi_hmac_sha256
+- mcrypsi_hmac_sha384
+- mcrypsi_hmac_sha512
 
 ### Test the extensions
 
@@ -152,4 +173,16 @@ mysql> select mcrypsi_aes_128_gcm_decrypt('abc$#128djdyAgbj', '2d66dcffd5056b67b
 | this is dark |
 +--------------+
 1 row in set (0.01 sec)
+```
+
+HMAC
+```shell
+mysql> select mcrypsi_hmac_sha512('abc$#128djdyAgbjau&YAnmcbagryt5x', 'hello world') as res;
++--------------+
+| res          |
++--------------+
+| this is dark |
++--------------+
+1 row in set (0.01 sec)
+```
 ```
