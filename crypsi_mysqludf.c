@@ -392,8 +392,8 @@ char* mcrypsi_aes_256_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
 
 // HMAC MD5
 int mcrypsi_hmac_md5_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
-    char function_name[28] = "mcrypsi_hmac_md5";
-    function_name[28-1] = 0x0;
+    char function_name[17] = "mcrypsi_hmac_md5";
+    function_name[17-1] = 0x0;
 
     if (validate_args(args, function_name, message) != 0) {
         return 1;
@@ -436,8 +436,8 @@ char* mcrypsi_hmac_md5(UDF_INIT* initid, UDF_ARGS* args, char* result,
 
 // HMAC SHA1
 int mcrypsi_hmac_sha1_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
-    char function_name[28] = "mcrypsi_hmac_sha1";
-    function_name[28-1] = 0x0;
+    char function_name[18] = "mcrypsi_hmac_sha1";
+    function_name[18-1] = 0x0;
 
     if (validate_args(args, function_name, message) != 0) {
         return 1;
@@ -480,8 +480,8 @@ char* mcrypsi_hmac_sha1(UDF_INIT* initid, UDF_ARGS* args, char* result,
 
 // HMAC SHA256
 int mcrypsi_hmac_sha256_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
-    char function_name[28] = "mcrypsi_hmac_sha256";
-    function_name[28-1] = 0x0;
+    char function_name[20] = "mcrypsi_hmac_sha256";
+    function_name[20-1] = 0x0;
 
     if (validate_args(args, function_name, message) != 0) {
         return 1;
@@ -524,8 +524,8 @@ char* mcrypsi_hmac_sha256(UDF_INIT* initid, UDF_ARGS* args, char* result,
 
 // HMAC SHA384
 int mcrypsi_hmac_sha384_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
-    char function_name[28] = "mcrypsi_hmac_sha384";
-    function_name[28-1] = 0x0;
+    char function_name[20] = "mcrypsi_hmac_sha384";
+    function_name[20-1] = 0x0;
 
     if (validate_args(args, function_name, message) != 0) {
         return 1;
@@ -568,8 +568,8 @@ char* mcrypsi_hmac_sha384(UDF_INIT* initid, UDF_ARGS* args, char* result,
 
 // HMAC SHA512
 int mcrypsi_hmac_sha512_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
-    char function_name[28] = "mcrypsi_hmac_sha512";
-    function_name[28-1] = 0x0;
+    char function_name[20] = "mcrypsi_hmac_sha512";
+    function_name[20-1] = 0x0;
 
     if (validate_args(args, function_name, message) != 0) {
         return 1;
