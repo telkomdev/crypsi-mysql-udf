@@ -59,7 +59,7 @@ char* mcrypsi_aes_128_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     }
 
     *length = dst_size;
-    strncpy(result, dst, dst_size);
+    memcpy(result, dst, dst_size);
 
     return result;
 }
