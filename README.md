@@ -17,6 +17,7 @@ Why not `standard mysql crypto function` https://dev.mysql.com/doc/refman/8.0/en
 - Java/JVM https://github.com/telkomdev/jcrypsi
 - NodeJs https://github.com/telkomdev/crypsi
 - Javascript (React and Browser) https://github.com/telkomdev/crypsi.js
+- PostgreSQL https://github.com/telkomdev/pgcrypsi
 
 Compatible which means you can directly use existing functions to encrypt and decrypt data. For example, the functions in the Crypsi package for NodeJs below are compatible with the functions in `crypsi-mysql-udf`
 
