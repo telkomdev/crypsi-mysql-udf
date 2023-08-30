@@ -94,7 +94,7 @@ $ select * from mysql.func;
 ```
 
 Drop the functions if exists
-```shell
+```sql
 DROP FUNCTION mcrypsi_aes_128_gcm_encrypt;
 DROP FUNCTION mcrypsi_aes_192_gcm_encrypt;
 DROP FUNCTION mcrypsi_aes_256_gcm_encrypt;
@@ -111,7 +111,7 @@ DROP FUNCTION mcrypsi_hmac_sha512;
 ```
 
 Create functions
-```shell
+```sql
 CREATE FUNCTION mcrypsi_aes_128_gcm_encrypt RETURNS STRING SONAME 'crypsi_mysqludf.so';
 CREATE FUNCTION mcrypsi_aes_192_gcm_encrypt RETURNS STRING SONAME 'crypsi_mysqludf.so';
 CREATE FUNCTION mcrypsi_aes_256_gcm_encrypt RETURNS STRING SONAME 'crypsi_mysqludf.so';
