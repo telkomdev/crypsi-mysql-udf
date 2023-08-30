@@ -46,4 +46,4 @@ jobs:
 
     - name: Test
       run: |
-        mysql -h localhost -P 3306 --database=test -u root --password=12345678 < ./scripts/test.sql
+        mysql -h localhost -P 3306 --database=test --protocol=tcp -u root --password=12345678 < ./scripts/test.sql
