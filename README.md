@@ -151,6 +151,12 @@ The length of the HMAC key must be at least 32 characters
 - mcrypsi_hmac_sha384
 - mcrypsi_hmac_sha512
 
+### Run test
+```shell
+$ sudo mysql
+mysql> source /home/vagrant/crypsi-mysql-udf/test.sql
+```
+
 ### Test the extensions
 
 Encrypt
