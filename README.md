@@ -75,7 +75,7 @@ mysql> show variables like 'plugin_dir';
 1 row in set (0.00 sec)
 ```
 
-#### Error: Error Code: 1127. Can't find symbol 'get_url_param' in library
+#### Error: Error Code: 1127. Can't find symbol 'xxxx' in library
 try to restart MySQL Server
 ```shell
 $ sudo systemctl restart mysql
