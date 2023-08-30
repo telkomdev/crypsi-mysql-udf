@@ -3,7 +3,7 @@
 C Crypsi (https://github.com/telkomdev/c-crypsi) MySQL UDF (User Defined Function)
 
 ## Motivation/ Why ?
-Why not `standard mysql crypto function` https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html ?. At the time this plugin was created, `standard mysql crypto function` did not support `AES GCM` and `HMAC (hash-based message authentication code)` yet. So this plugin is made to fulfill `AES GCM` and `HMAC (hash-based message authentication code)` encryption needs.
+Why not `standard mysql crypto function` https://dev.mysql.com/doc/refman/8.0/en/encryption-functions.html ?. At the time this plugin was created, `standard mysql crypto function` did not support `AES GCM` and `HMAC (hash-based message authentication code)` yet. So this plugin is made to fulfill `AES GCM` and `HMAC (hash-based message authentication code)` needs.
 
 ## Dependencies
 - https://github.com/telkomdev/c-crypsi
