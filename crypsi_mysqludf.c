@@ -31,80 +31,80 @@ extern "C" {
 #endif
 
 // AES 128 GCM encrypt
-my_bool mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_aes_128_gcm_encrypt_deinit(UDF_INIT* initid);
 char* mcrypsi_aes_128_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // AES 128 GCM decrypt
-my_bool mcrypsi_aes_128_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_aes_128_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_aes_128_gcm_decrypt_deinit(UDF_INIT* initid);
 char* mcrypsi_aes_128_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // AES 192 GCM encrypt
-my_bool mcrypsi_aes_192_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_aes_192_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_aes_192_gcm_encrypt_deinit(UDF_INIT* initid);
 char* mcrypsi_aes_192_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // AES 192 GCM decrypt
-my_bool mcrypsi_aes_192_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_aes_192_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_aes_192_gcm_decrypt_deinit(UDF_INIT* initid);
 char* mcrypsi_aes_192_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // AES 256 GCM encrypt
-my_bool mcrypsi_aes_256_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_aes_256_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_aes_256_gcm_encrypt_deinit(UDF_INIT* initid);
 char* mcrypsi_aes_256_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // AES 256 GCM decrypt
-my_bool mcrypsi_aes_256_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_aes_256_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_aes_256_gcm_decrypt_deinit(UDF_INIT* initid);
 char* mcrypsi_aes_256_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // HMAC MD5
-my_bool mcrypsi_hmac_md5_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_hmac_md5_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_hmac_md5_deinit(UDF_INIT* initid);
 char* mcrypsi_hmac_md5(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // HMAC SHA1
-my_bool mcrypsi_hmac_sha1_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_hmac_sha1_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_hmac_sha1_deinit(UDF_INIT* initid);
 char* mcrypsi_hmac_sha1(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // HMAC SHA256
-my_bool mcrypsi_hmac_sha256_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_hmac_sha256_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_hmac_sha256_deinit(UDF_INIT* initid);
 char* mcrypsi_hmac_sha256(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // HMAC SHA384
-my_bool mcrypsi_hmac_sha384_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_hmac_sha384_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_hmac_sha384_deinit(UDF_INIT* initid);
 char* mcrypsi_hmac_sha384(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // HMAC SHA512
-my_bool mcrypsi_hmac_sha512_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
+int mcrypsi_hmac_sha512_init(UDF_INIT* initid, UDF_ARGS* args, char* message);
 void mcrypsi_hmac_sha512_deinit(UDF_INIT* initid);
 char* mcrypsi_hmac_sha512(UDF_INIT* initid, UDF_ARGS* args, char* result, 
     unsigned long* length, char* is_null, char* error);
 
 // utilities
-my_bool validate_args(UDF_ARGS* args, char* function_name, char* message);
+int validate_args(UDF_ARGS* args, char* function_name, char* message);
 
 #ifdef __cplusplus
 }
 #endif
 
 // utilities
-my_bool validate_args(UDF_ARGS* args, char* function_name, char* message) {
+int validate_args(UDF_ARGS* args, char* function_name, char* message) {
     if (args->arg_count != 2) {
         strcpy(message, function_name);
         strcat(message, " requires key and text parameters");
@@ -127,7 +127,7 @@ my_bool validate_args(UDF_ARGS* args, char* function_name, char* message) {
 }
 
 // AES 128 GCM encrypt
-my_bool mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_aes_128_gcm_encrypt";
     function_name[28-1] = 0x0;
 
@@ -171,7 +171,7 @@ char* mcrypsi_aes_128_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
 }
 
 // AES 128 GCM decrypt
-my_bool mcrypsi_aes_128_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_aes_128_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_aes_128_gcm_decrypt";
     function_name[28-1] = 0x0;
 
@@ -215,7 +215,7 @@ char* mcrypsi_aes_128_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
 }
 
 // AES 192 GCM encrypt
-my_bool mcrypsi_aes_192_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_aes_192_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_aes_192_gcm_encrypt";
     function_name[28-1] = 0x0;
 
@@ -259,7 +259,7 @@ char* mcrypsi_aes_192_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
 }
 
 // AES 192 GCM decrypt
-my_bool mcrypsi_aes_192_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_aes_192_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_aes_192_gcm_decrypt";
     function_name[28-1] = 0x0;
 
@@ -303,7 +303,7 @@ char* mcrypsi_aes_192_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
 }
 
 // AES 256 GCM encrypt
-my_bool mcrypsi_aes_256_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_aes_256_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_aes_256_gcm_encrypt";
     function_name[28-1] = 0x0;
 
@@ -347,7 +347,7 @@ char* mcrypsi_aes_256_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
 }
 
 // AES 256 GCM decrypt
-my_bool mcrypsi_aes_256_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_aes_256_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_aes_256_gcm_decrypt";
     function_name[28-1] = 0x0;
 
@@ -391,7 +391,7 @@ char* mcrypsi_aes_256_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
 }
 
 // HMAC MD5
-my_bool mcrypsi_hmac_md5_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_hmac_md5_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_hmac_md5";
     function_name[28-1] = 0x0;
 
@@ -435,7 +435,7 @@ char* mcrypsi_hmac_md5(UDF_INIT* initid, UDF_ARGS* args, char* result,
 }
 
 // HMAC SHA1
-my_bool mcrypsi_hmac_sha1_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_hmac_sha1_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_hmac_sha1";
     function_name[28-1] = 0x0;
 
@@ -479,7 +479,7 @@ char* mcrypsi_hmac_sha1(UDF_INIT* initid, UDF_ARGS* args, char* result,
 }
 
 // HMAC SHA256
-my_bool mcrypsi_hmac_sha256_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_hmac_sha256_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_hmac_sha256";
     function_name[28-1] = 0x0;
 
@@ -523,7 +523,7 @@ char* mcrypsi_hmac_sha256(UDF_INIT* initid, UDF_ARGS* args, char* result,
 }
 
 // HMAC SHA384
-my_bool mcrypsi_hmac_sha384_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_hmac_sha384_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_hmac_sha384";
     function_name[28-1] = 0x0;
 
@@ -567,7 +567,7 @@ char* mcrypsi_hmac_sha384(UDF_INIT* initid, UDF_ARGS* args, char* result,
 }
 
 // HMAC SHA512
-my_bool mcrypsi_hmac_sha512_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+int mcrypsi_hmac_sha512_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
     char function_name[28] = "mcrypsi_hmac_sha512";
     function_name[28-1] = 0x0;
 
