@@ -16,24 +16,42 @@ my_bool mcrypsi_aes_128_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char*
 void mcrypsi_aes_128_gcm_decrypt_deinit(UDF_INIT* initid);
 char* mcrypsi_aes_128_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result, unsigned long* length, char* is_null, char* error);
 
+// utilities
+my_bool validate_args(UDF_ARGS* args, char* function_name, char* message);
+
 #ifdef __cplusplus
 }
 #endif
 
-// AES 128 GCM encrypt
-my_bool mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+// utilities
+my_bool validate_args(UDF_ARGS* args, char* function_name, char* message) {
     if (args->arg_count != 2) {
-        strcpy(message, "mcrypsi_aes_128_gcm_encrypt requires key and text parameters");
+        strcpy(message, function_name);
+        strcat(message, " requires key and text parameters");
         return 1;
     }
 
     if (args->arg_type[0] != STRING_RESULT || args->arg_type[1] != STRING_RESULT) {
-        strcpy(message, "mcrypsi_aes_128_gcm_encrypt requires key string and text string parameters");
+        strcpy(message, function_name);
+        strcat(message, " requires key string and text string parameters");
         return 1;
     }
 
     if (args->lengths[0] <= 0 || args->lengths[1] <= 0) {
-        strcpy(message, "mcrypsi_aes_128_gcm_encrypt parameters length value cannot less than 0");
+        strcpy(message, function_name);
+        strcat(message, " parameters length value cannot less than 0");
+        return 1;
+    }
+
+    return 0;
+}
+
+// AES 128 GCM encrypt
+my_bool mcrypsi_aes_128_gcm_encrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
+    char function_name[28] = "mcrypsi_aes_128_gcm_encrypt";
+    function_name[28-1] = 0x0;
+
+    if (validate_args(args, function_name, message) != 0) {
         return 1;
     }
 
@@ -73,18 +91,10 @@ char* mcrypsi_aes_128_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
 
 // AES 128 GCM decrypt
 my_bool mcrypsi_aes_128_gcm_decrypt_init(UDF_INIT* initid, UDF_ARGS* args, char* message) {
-    if (args->arg_count != 2) {
-        strcpy(message, "mcrypsi_aes_128_gcm_decrypt requires key and text parameters");
-        return 1;
-    }
+    char function_name[28] = "mcrypsi_aes_128_gcm_decrypt";
+    function_name[28-1] = 0x0;
 
-    if (args->arg_type[0] != STRING_RESULT || args->arg_type[1] != STRING_RESULT) {
-        strcpy(message, "mcrypsi_aes_128_gcm_decrypt requires key string and text string parameters");
-        return 1;
-    }
-
-    if (args->lengths[0] <= 0 || args->lengths[1] <= 0) {
-        strcpy(message, "mcrypsi_aes_128_gcm_decrypt parameters length value cannot less than 0");
+    if (validate_args(args, function_name, message) != 0) {
         return 1;
     }
 
