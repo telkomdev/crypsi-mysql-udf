@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     services:
-      postgres:
+      mysql:
         image:  wuriyanto/mysql-crypsi:latest
         ports:
           - 3306:3306
