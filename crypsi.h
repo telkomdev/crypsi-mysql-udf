@@ -591,7 +591,7 @@ static int crypsi_aes_cbc_decrypt(enum crypsi_aes_key aes_key_size, const unsign
     }
    
     memcpy(*dst, dst_tmp, plaintext_len);
-    // *dst[plaintext_len] = 0x0;
+    (*dst)[plaintext_len] = 0x0;
 
     *dst_len = plaintext_len;
 
@@ -813,7 +813,7 @@ static int crypsi_aes_gcm_decrypt(enum crypsi_aes_key aes_key_size, const unsign
     }
    
     memcpy(*dst, dst_tmp, plaintext_len);
-    // *dst[plaintext_len] = 0x0;
+    (*dst)[plaintext_len] = 0x0;
 
     *dst_len = plaintext_len;
 
