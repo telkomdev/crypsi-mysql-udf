@@ -649,8 +649,9 @@ static int crypsi_aes_gcm_encrypt(enum crypsi_aes_key aes_key_size, const unsign
         return ret;
     }
 
-    if((dst_tmp_raw = (unsigned char*) malloc(raw_ciphertext_len)) == NULL)
-		return -1;
+    if((dst_tmp_raw = (unsigned char*) malloc(raw_ciphertext_len)) == NULL) {
+        return -1;
+    }
     
     if(!(ctx = EVP_CIPHER_CTX_new())) {
         goto cleanup;
