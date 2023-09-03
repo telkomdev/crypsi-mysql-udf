@@ -1109,8 +1109,8 @@ int crypsi_rsa_load_private_key(const unsigned char* buffer, EVP_PKEY** private_
     // key sanitizer
     char buffer_tmp[strlen((const char*) buffer)+1];
     int i, j;
-    for(i = 0, j = 0 ; buffer[i] != '\0'; i++){
-        if(buffer[i] == '\\' && buffer[i + 1] == 'n'){
+    for(i = 0, j = 0 ; buffer[i] != '\0'; i++) {
+        if(buffer[i] == '\\' && buffer[i + 1] == 'n') {
             buffer_tmp[j] = '\n';
             i++;
         } else {
@@ -1160,8 +1160,8 @@ int crypsi_rsa_load_public_key(const unsigned char* buffer, EVP_PKEY** public_ke
     // key sanitizer
     char buffer_tmp[strlen((const char*) buffer)+1];
     int i, j;
-    for(i = 0, j = 0 ; buffer[i] != '\0'; i++){
-        if(buffer[i] == '\\' && buffer[i + 1] == 'n'){
+    for(i = 0, j = 0 ; buffer[i] != '\0'; i++) {
+        if (buffer[i] == '\\' && buffer[i + 1] == 'n') {
             buffer_tmp[j] = '\n';
             i++;
         } else {
