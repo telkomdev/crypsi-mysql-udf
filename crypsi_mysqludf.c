@@ -152,6 +152,8 @@ char* mcrypsi_aes_128_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -159,8 +161,7 @@ char* mcrypsi_aes_128_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     int dst_size = 0;
     ret = crypsi_aes_128_gcm_encrypt(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error encrypt with mcrypsi_aes_128_gcm_encrypt");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -196,6 +197,8 @@ char* mcrypsi_aes_128_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -203,8 +206,7 @@ char* mcrypsi_aes_128_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     int dst_size = 0;
     ret = crypsi_aes_128_gcm_decrypt(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error encrypt with mcrypsi_aes_128_gcm_decrypt");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -240,6 +242,8 @@ char* mcrypsi_aes_192_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -247,8 +251,7 @@ char* mcrypsi_aes_192_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     int dst_size = 0;
     ret = crypsi_aes_192_gcm_encrypt(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error encrypt with mcrypsi_aes_192_gcm_encrypt");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -284,6 +287,8 @@ char* mcrypsi_aes_192_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -291,8 +296,7 @@ char* mcrypsi_aes_192_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     int dst_size = 0;
     ret = crypsi_aes_192_gcm_decrypt(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error encrypt with mcrypsi_aes_192_gcm_decrypt");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -328,6 +332,8 @@ char* mcrypsi_aes_256_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -335,8 +341,7 @@ char* mcrypsi_aes_256_gcm_encrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     int dst_size = 0;
     ret = crypsi_aes_256_gcm_encrypt(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error encrypt with mcrypsi_aes_256_gcm_encrypt");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -372,6 +377,8 @@ char* mcrypsi_aes_256_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -379,8 +386,7 @@ char* mcrypsi_aes_256_gcm_decrypt(UDF_INIT* initid, UDF_ARGS* args, char* result
     int dst_size = 0;
     ret = crypsi_aes_256_gcm_decrypt(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error encrypt with mcrypsi_aes_256_gcm_decrypt");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -416,6 +422,8 @@ char* mcrypsi_hmac_md5(UDF_INIT* initid, UDF_ARGS* args, char* result,
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -423,8 +431,7 @@ char* mcrypsi_hmac_md5(UDF_INIT* initid, UDF_ARGS* args, char* result,
     int dst_size = 0;
     ret = crypsi_hmac_md5(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error execute mcrypsi_hmac_md5");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -460,6 +467,8 @@ char* mcrypsi_hmac_sha1(UDF_INIT* initid, UDF_ARGS* args, char* result,
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -467,8 +476,7 @@ char* mcrypsi_hmac_sha1(UDF_INIT* initid, UDF_ARGS* args, char* result,
     int dst_size = 0;
     ret = crypsi_hmac_sha1(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error execute mcrypsi_hmac_sha1");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -504,6 +512,8 @@ char* mcrypsi_hmac_sha256(UDF_INIT* initid, UDF_ARGS* args, char* result,
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -511,8 +521,7 @@ char* mcrypsi_hmac_sha256(UDF_INIT* initid, UDF_ARGS* args, char* result,
     int dst_size = 0;
     ret = crypsi_hmac_sha256(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error execute mcrypsi_hmac_sha256");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -548,6 +557,8 @@ char* mcrypsi_hmac_sha384(UDF_INIT* initid, UDF_ARGS* args, char* result,
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -555,8 +566,7 @@ char* mcrypsi_hmac_sha384(UDF_INIT* initid, UDF_ARGS* args, char* result,
     int dst_size = 0;
     ret = crypsi_hmac_sha384(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error execute mcrypsi_hmac_sha384");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
@@ -592,6 +602,8 @@ char* mcrypsi_hmac_sha512(UDF_INIT* initid, UDF_ARGS* args, char* result,
     unsigned long* length, char* is_null, char* error) {
     unsigned char* dst = (unsigned char*) initid->ptr;
     int ret = 0;
+    *is_null = 0;
+    *error = 0;
     char* input_key = args->args[0];
     char* input_text = args->args[1];
     int text_size = args->lengths[1];
@@ -599,8 +611,7 @@ char* mcrypsi_hmac_sha512(UDF_INIT* initid, UDF_ARGS* args, char* result,
     int dst_size = 0;
     ret = crypsi_hmac_sha512(input_key, input_text, text_size, &dst, &dst_size);
     if (ret != 0) {
-        strcpy(error, "error execute mcrypsi_hmac_sha512");
-        *is_null = 1;
+        *error = 1;
         return NULL;
     }
 
