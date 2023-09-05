@@ -49,3 +49,13 @@ select 'hello worldie' != mcrypsi_aes_192_gcm_decrypt('abc$#128djdyAgbjau&YAnmc'
 
 select mcrypsi_aes_256_gcm_encrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', 'hello world') as res;
 select 'hello worldie' != mcrypsi_aes_256_gcm_decrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', mcrypsi_aes_256_gcm_encrypt('abc$#128djdyAgbjau&YAnmcbagryt5x', 'hello world')) as res_mcrypsi_aes_256_gcm_encrypt_invalid;
+
+-- AES with invalid key size --
+select mcrypsi_aes_128_gcm_encrypt('abc$#', 'hello world') as res;
+select 0 = (mcrypsi_aes_128_gcm_encrypt('abc$#', 'hello world') is not null) as res_mcrypsi_aes_128_gcm_encrypt_invalid_key;
+
+select mcrypsi_aes_192_gcm_encrypt('abc$#', 'hello world') as res;
+select 0 = (mcrypsi_aes_192_gcm_encrypt('abc$#', 'hello world') is not null) as res_mcrypsi_aes_192_gcm_encrypt_invalid_key;
+
+select mcrypsi_aes_256_gcm_encrypt('abc$#', 'hello world') as res;
+select 0 = (mcrypsi_aes_256_gcm_encrypt('abc$#', 'hello world') is not null) as res_mcrypsi_aes_256_gcm_encrypt_invalid_key;
