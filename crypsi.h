@@ -40,6 +40,8 @@ THE SOFTWARE.
 #define AES_GCM_TAG_SIZE 16
 #define HMAC_KEY_MIN_SIZE 32
 
+static unsigned char HEX_LOOKUP[22];
+
 static const unsigned char HEX_TABLE[][2] = {
     {0x30, 0}, 
     {0x31, 1}, 
@@ -99,6 +101,7 @@ int hexencode(const unsigned char* message, size_t message_len,
 int hexdecode(const unsigned char* message, size_t message_len, 
     unsigned char** dst, unsigned int* dst_len);
 unsigned char find_hex_val(unsigned char hx);
+static void initialize_hex_lookup();
 
 // AES
 static int crypsi_aes_cbc_encrypt(enum crypsi_aes_key aes_key_size, const unsigned char* key, 
@@ -233,15 +236,14 @@ int crypsi_rsa_verify_sign_pss_sha512(const unsigned char* key, const unsigned c
 }
 #endif
 
-unsigned char find_hex_val(unsigned char hx) {
-    char c = 0x0;
-     for (int j = 0; j < sizeof(HEX_TABLE); j++) {
-        if (hx == HEX_TABLE[j][0]) {
-            c = HEX_TABLE[j][1];
-            break;
-        }
+static void initialize_hex_lookup() {
+    for (int i = 0; i < sizeof(HEX_TABLE) / sizeof(HEX_TABLE[0]); i++) {
+        HEX_LOOKUP[HEX_TABLE[i][0]] = HEX_TABLE[i][1];
     }
-    return c;
+}
+
+unsigned char find_hex_val(unsigned char hx) {
+    return HEX_LOOKUP[hx];
 }
 
 int hexencode(const unsigned char* message, size_t message_len, 
@@ -274,6 +276,16 @@ int hexdecode(const unsigned char* message, size_t message_len,
     unsigned char** dst, unsigned int* dst_len) {
     
     int ret = -1;
+
+    // Ensure message_len is valid
+    // hex string size is always even
+    if (message_len == 0 || message_len % 2 != 0) {
+        return ret;
+    }
+
+    // init hex lookup
+    initialize_hex_lookup();
+    
     int result_len = message_len/2+1;
     unsigned char* _dst = (unsigned char*) malloc(result_len);
     if (_dst == NULL) {
